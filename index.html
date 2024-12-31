@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kudos Delight</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Kudos Delight</h1>
+    <div class="kudos-display" id="kudosDisplay">
+      <!-- Placeholder for compliments fetched from the database -->
+      <p id="kudosMessage">Your kudos will appear here!</p>
+    </div>
+
+    <div class="buttons">
+      <button id="generateKudos" class="btn">Generate a Kudo</button>
+      <button id="toggleForm" class="btn">Add Kudos</button>
+    </div>
+
+    <!-- Add Kudos Form -->
+    <div id="addKudosForm" class="hidden">
+      <label for="kudosInput">Write a Kudo:</label>
+      <textarea id="kudosInput" placeholder="Enter your Kudos here...   "></textarea>
+      <div>
+        <button id="submitKudos" class="btn">Submit</button>
+      </div>
+      
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
