@@ -35,7 +35,25 @@ submitKudos.addEventListener('click', () => {
     database.ref('kudos').push({
       message: kudosText, // Save the compliment
     }).then(() => {
-      alert("Kudos submitted successfully!");
+      // Create a success message
+      const successMessage = document.createElement('div');
+      successMessage.id = 'successMessage'; // Assign an ID for easy access
+      successMessage.textContent = "Kudos submitted successfully!";
+      successMessage.style.color = "green"; // Style the message
+      successMessage.style.marginTop = "10px";
+      successMessage.style.textAlign = "center";
+      
+      // Append the message to the form's parent container
+      addKudosForm.parentNode.insertBefore(successMessage, addKudosForm);
+
+      // Remove the message after 3 seconds
+      setTimeout(() => {
+        const messageElement = document.getElementById('successMessage');
+        if (messageElement) {
+          messageElement.remove();
+        }
+      }, 3000);
+
       kudosInput.value = ""; // Clear the input field
       addKudosForm.classList.add('hidden'); // Hide the form
       toggleForm.textContent = "Add Kudos"; // Reset toggle button text
@@ -47,6 +65,8 @@ submitKudos.addEventListener('click', () => {
     alert("Please write a Kudo before submitting!"); // Validation for empty input
   }
 });
+
+
 
 // Handle Generate Kudos Button
 generateKudos.addEventListener('click', () => {
